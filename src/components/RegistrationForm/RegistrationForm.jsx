@@ -1,6 +1,7 @@
 import { Formik, Form, Field } from "formik";
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/auth/operations";
+import styles from "./RegistrationForm.module.css";
 import * as Yup from "yup";
 
 const RegistrationSchema = Yup.object().shape({
@@ -12,9 +13,9 @@ const RegistrationSchema = Yup.object().shape({
 export default function RegistrationForm() {
   const dispatch = useDispatch();
 
-  const handleSubmit = (values, { setSubmitting }) => {
+  const handleSubmit = (values, actions) => {
     dispatch(register(values));
-    setSubmitting(false);
+    actions.resetForm();
   };
 
   return (
@@ -24,10 +25,19 @@ export default function RegistrationForm() {
       onSubmit={handleSubmit}
     >
       {({ isSubmitting }) => (
-        <Form>
-          <Field type="text" name="name" placeholder="Name" />
-          <Field type="email" name="email" placeholder="Email" />
-          <Field type="password" name="password" placeholder="Password" />
+        <Form className={styles.form} autoComplete="off">
+          <label className={styles.label}>
+            Username
+            <Field type="text" name="name" />
+          </label>
+          <label className={styles.label}>
+            Email
+            <Field type="email" name="email" />
+          </label>
+          <label className={styles.label}>
+            Password
+            <Field type="password" name="password" />
+          </label>
           <button type="submit" disabled={isSubmitting}>
             Register
           </button>

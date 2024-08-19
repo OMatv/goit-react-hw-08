@@ -1,6 +1,7 @@
 import { Formik, Form, Field } from "formik";
 import { useDispatch } from "react-redux";
-import { login } from "../../redux/auth/operations";
+import { logIn } from "../../redux/auth/operations";
+import styles from "./LoginForm.module.css";
 import * as Yup from "yup";
 
 const LoginSchema = Yup.object().shape({
@@ -11,9 +12,9 @@ const LoginSchema = Yup.object().shape({
 export default function LoginForm() {
   const dispatch = useDispatch();
 
-  const handleSubmit = (values, { setSubmitting }) => {
-    dispatch(login(values));
-    setSubmitting(false);
+  const handleSubmit = (values, actions) => {
+    dispatch(logIn(values));
+    actions.resetForm();
   };
 
   return (
@@ -23,11 +24,17 @@ export default function LoginForm() {
       onSubmit={handleSubmit}
     >
       {({ isSubmitting }) => (
-        <Form>
-          <Field type="email" name="email" placeholder="Email" />
-          <Field type="password" name="password" placeholder="Password" />
+        <Form className={styles.form} autoComplete="off">
+          <label className={styles.label}>
+            Email
+            <Field type="email" name="email" />
+          </label>
+          <label className={styles.label}>
+            Password
+            <Field type="password" name="password" />
+          </label>
           <button type="submit" disabled={isSubmitting}>
-            Login
+            Log In
           </button>
         </Form>
       )}

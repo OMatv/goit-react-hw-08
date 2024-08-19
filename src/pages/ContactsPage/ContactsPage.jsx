@@ -1,14 +1,16 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import PageTitle from "../../components/PageTitle/PageTitle";
 import ContactList from "../../components/ContactList/ContactList";
-import ContactForm from "../../components/ContactForm/ContactForm";
-import Filter from "../../components/Filter/Filter";
+import ContactEditor from "../../components/ContactEditor/ContactEditor";
+
 import { fetchContacts } from "../../redux/contacts/operations";
+import { selectLoading } from "../../redux/contacts/selectors";
 import styles from "./ContactsPage.module.css";
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
-  const isLoading = useSelector((state) => state.contacts.isLoading);
+  const isLoading = useSelector(selectLoading);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -16,10 +18,10 @@ export default function ContactsPage() {
 
   return (
     <div className={styles.container}>
-      <h2>Your Contacts</h2>
-      <ContactForm />
-      <Filter />
-      {isLoading ? <p>Loading...</p> : <ContactList />}
+      <PageTitle>Your Contacts</PageTitle>
+      <ContactEditor />
+      <div>{isLoading && "Loading ..."}</div>
+      <ContactList />
     </div>
   );
 }

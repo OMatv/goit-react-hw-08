@@ -8,7 +8,7 @@ export default function AuthNav() {
         Register
       </NavLink>
       <NavLink to="/login" className={styles.link}>
-        Login
+        Log In
       </NavLink>
     </nav>
   );

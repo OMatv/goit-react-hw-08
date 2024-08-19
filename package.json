@@ -23,6 +23,7 @@
     "redux": "^5.0.1",
     "redux-persist": "^6.0.0",
     "selectors": "^0.0.1",
+    "toolkit": "^1.5.4",
     "yup": "^1.4.0"
   },
   "devDependencies": {

@@ -1,40 +1,28 @@
-.formBox {
+.form {
+  width: 320px;
+}
+
+.label {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  min-width: 320px;
-  max-width: 480px;
-  padding: 10px;
-  gap: 10px;
-  border: 1px solid black;
+  text-align: left;
+  margin-bottom: 16px;
 }
-
-.inputName {
-  max-width: 200px;
-  margin-bottom: 10px;
-  padding: 2px 12px;
-}
-
-.btn {
-  width: 120px;
-  padding: 2px 12px;
-  text-transform: capitalize;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.62;
-  text-align: center;
+.button {
+  font: inherit;
   cursor: pointer;
-  border: none;
+  outline: none;
+  margin-left: auto;
   border-radius: 4px;
-  color: white;
-  background-color: grey;
-  transition-property: background-color, color, box-shadow;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  border-color: black;
+  padding: 8px 12px;
+  color: #bab5b5;
 }
-.btn:hover,
-.btn:focus {
-  background-color: rgb(124, 124, 235);
-  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
-    0px 2px 2px rgba(0, 0, 0, 0.12);
+
+.button:hover,
+.button:focus {
+}
+
+.button:active {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
