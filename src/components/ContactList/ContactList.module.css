@@ -1,8 +1,38 @@
 .list {
+  list-style: none;
   padding: 0;
   margin: 0;
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 12px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.contactText {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.deleteButton {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: #596273;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.deleteButton:hover {
+  background-color: #ff5500;
 }

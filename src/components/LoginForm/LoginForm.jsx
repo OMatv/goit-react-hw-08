@@ -13,8 +13,13 @@ export default function LoginForm() {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    dispatch(logIn(values));
-    actions.resetForm();
+    dispatch(logIn(values))
+      .then(() => {
+        actions.resetForm();
+      })
+      .catch(() => {
+        actions.resetForm();
+      });
   };
 
   return (

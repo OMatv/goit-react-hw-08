@@ -2,6 +2,10 @@
   width: 320px;
 }
 
+.name {
+  color: whitesmoke;
+}
+
 .label {
   display: flex;
   flex-direction: column;
@@ -16,11 +20,12 @@
   border-radius: 4px;
   border-color: black;
   padding: 8px 12px;
-  color: #bab5b5;
+  color: #596273;
 }
 
 .button:hover,
 .button:focus {
+  color: #36a130;
 }
 
 .button:active {

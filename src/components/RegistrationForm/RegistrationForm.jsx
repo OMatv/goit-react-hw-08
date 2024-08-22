@@ -13,9 +13,14 @@ const RegistrationSchema = Yup.object().shape({
 export default function RegistrationForm() {
   const dispatch = useDispatch();
 
-  const handleSubmit = (values, actions) => {
-    dispatch(register(values));
-    actions.resetForm();
+  const handleSubmit = async (values, actions) => {
+    try {
+      await dispatch(register(values));
+      actions.resetForm();
+    } catch (error) {
+      actions.resetForm();
+      // Можна додатково додати логіку для обробки помилок
+    }
   };
 
   return (
